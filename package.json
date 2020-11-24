@@ -1,0 +1,20 @@
+{
+  "name": "ram",
+  "version": "1.0.0",
+  "description": "simp for Ram",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Ram",
+    "Top",
+    "Me"
+  ],
+  "author": "Kyle Miller",
+  "license": "ISC",
+  "dependencies": {
+    "twit": "^2.2.11"
+  }
+}
