@@ -55,67 +55,41 @@ function tweetIt(eventMsg) {
     ////////////////////////////////////////
 
 
-    filenames1 = fs.readdirSync(path.join(__dirname, "Cards" , "common"))
-  
-    var outcome1 = Math.ceil( Math.random() * Object.keys(filenames1).length)
-  
+    filenames1 = fs.readdirSync(path.join(__dirname, "Cards" , "common")) 
+    var outcome1 = Math.ceil( Math.random() * Object.keys(filenames1).length) 
     var answer1 = filenames1[outcome1]
-
     console.log(answer1)
-
     const imagePath1 = path.join(__dirname, "Cards" , "common" , answer1 );
-
     b64content1 = fs.readFileSync( imagePath1, { encoding: 'base64' } );
-
 
     //////////////////////////////
 
-    console.log('common')
-  
-    filenames2 = fs.readdirSync(path.join(__dirname, "Cards" , "common"))
-  
-    var outcome2 = Math.ceil( Math.random() * Object.keys(filenames2).length)
-  
+    console.log('common')  
+    filenames2 = fs.readdirSync(path.join(__dirname, "Cards" , "common")) 
+    var outcome2 = Math.ceil( Math.random() * Object.keys(filenames2).length) 
     var answer2 = filenames2[outcome2]
-
     console.log(filenames2[outcome2])
-
     const imagePath2 = path.join(__dirname, "Cards" , "common" , answer2 );
-
     b64content2 = fs.readFileSync( imagePath2, { encoding: 'base64' } );
-
 
     ////////////////////////////////
 
-    console.log(rarity1)
-  
-    filenames3 = fs.readdirSync(path.join(__dirname, "Cards" , rarity1))
-  
-    var outcome3 = Math.ceil( Math.random() * Object.keys(filenames3).length)
-  
+    console.log(rarity1)  
+    filenames3 = fs.readdirSync(path.join(__dirname, "Cards" , rarity1))  
+    var outcome3 = Math.ceil( Math.random() * Object.keys(filenames3).length)  
     var answer3 = filenames3[outcome3]
-
     console.log(filenames3[outcome3])
-
     const imagePath3 = path.join(__dirname, "Cards" , rarity1 , answer3 );
-
     b64content3 = fs.readFileSync( imagePath3, { encoding: 'base64' } );
-
 
     //////////////////////////////////
 
-    console.log(rarity2)
-  
-    filenames4 = fs.readdirSync(path.join(__dirname, "Cards" , rarity2))
-  
-    var outcome4 = Math.ceil( Math.random() * Object.keys(filenames4).length)
-  
+    console.log(rarity2)  
+    filenames4 = fs.readdirSync(path.join(__dirname, "Cards" , rarity2))  
+    var outcome4 = Math.ceil( Math.random() * Object.keys(filenames4).length)  
     var answer4 = filenames4[outcome4]
-
     console.log(filenames4[outcome4])
-
     const imagePath4 = path.join(__dirname, "Cards" , rarity2 , answer4 );
-
     b64content4 = fs.readFileSync( imagePath4, { encoding: 'base64' } );
 
     var mediaArray = [];
