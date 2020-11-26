@@ -1,15 +1,15 @@
 {
-  "created_at": "Tue Nov 24 05:08:12 +0000 2020",
-  "id": 1331102295644369000,
-  "id_str": "1331102295644368901",
-  "text": "Hey @ram_simp tweet",
+  "created_at": "Thu Nov 26 02:58:24 +0000 2020",
+  "id": 1331794407675322400,
+  "id_str": "1331794407675322368",
+  "text": "@ram_simp handbook",
   "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
   "truncated": false,
   "in_reply_to_status_id": null,
   "in_reply_to_status_id_str": null,
-  "in_reply_to_user_id": null,
-  "in_reply_to_user_id_str": null,
-  "in_reply_to_screen_name": null,
+  "in_reply_to_user_id": 1326359789740454000,
+  "in_reply_to_user_id_str": "1326359789740453888",
+  "in_reply_to_screen_name": "ram_simp",
   "user": {
     "id": 736329349947789300,
     "id_str": "736329349947789312",
@@ -21,11 +21,11 @@
     "translator_type": "none",
     "protected": false,
     "verified": false,
-    "followers_count": 172,
-    "friends_count": 797,
+    "followers_count": 174,
+    "friends_count": 801,
     "listed_count": 1,
-    "favourites_count": 32747,
-    "statuses_count": 9146,
+    "favourites_count": 32831,
+    "statuses_count": 9218,
     "created_at": "Fri May 27 22:52:52 +0000 2016",
     "utc_offset": null,
     "time_zone": null,
@@ -70,8 +70,8 @@
         "id": 1326359789740454000,
         "id_str": "1326359789740453888",
         "indices": [
-          4,
-          13
+          0,
+          9
         ]
       }
     ],
@@ -80,6 +80,6 @@
   "favorited": false,
   "retweeted": false,
   "filter_level": "low",
-  "lang": "en",
-  "timestamp_ms": "1606194492623"
+  "lang": "da",
+  "timestamp_ms": "1606359504990"
 }

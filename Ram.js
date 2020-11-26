@@ -21,6 +21,7 @@ function tweetEvent(eventMsg) {
     var tweet_id = eventMsg.id_str;
     
     console.log(eventMsg.id)
+    console.log(eventMsg.id_str)
     console.log(eventMsg.text)
     console.log(eventMsg.in_reply_to_screen_name)
     console.log(eventMsg.in_reply_to_user_id_str)
