@@ -1,8 +1,8 @@
 {
-  "created_at": "Thu Nov 26 07:51:05 +0000 2020",
-  "id": 1331868063235518500,
-  "id_str": "1331868063235518465",
-  "text": "@ram_simp hey qt",
+  "created_at": "Thu Nov 26 08:32:56 +0000 2020",
+  "id": 1331878594121961500,
+  "id_str": "1331878594121961473",
+  "text": "@ram_simp warasd",
   "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
   "truncated": false,
   "in_reply_to_status_id": null,
@@ -25,7 +25,7 @@
     "friends_count": 4,
     "listed_count": 0,
     "favourites_count": 1,
-    "statuses_count": 35,
+    "statuses_count": 37,
     "created_at": "Wed Nov 11 03:03:19 +0000 2020",
     "utc_offset": null,
     "time_zone": null,
@@ -79,6 +79,6 @@
   "favorited": false,
   "retweeted": false,
   "filter_level": "low",
-  "lang": "en",
-  "timestamp_ms": "1606377065844"
+  "lang": "in",
+  "timestamp_ms": "1606379576603"
 }

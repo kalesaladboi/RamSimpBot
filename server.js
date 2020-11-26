@@ -149,7 +149,7 @@ function tweetIt(eventMsg) {
 
   })
 
-}).then(result => {console.log(mediaString) 
+}).then(result => {console.log(result).catch( err => console.log(err))
 
   var mediaIdStr = mediaString
   var altText = "Ram Me Harder"
