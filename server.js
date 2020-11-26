@@ -162,23 +162,16 @@ T.post('media/metadata/create', meta_params, function (err, data, response) {
   //console.log(data)
 
    if (!err) {
-
      var params = { status: `@${eventMsg.user.screen_name} Get Rammed` , media_id: mediaIdStr , in_reply_to_status_id: eventMsg.id_str }
 
 T.post( 'statuses/update', params , function( err, data, response) {
-
           if (err){
-
           console.log( 'error:', err );
-
           }
 
        else{
-
            console.log( 'posted an image!' );
-
            res(response);
-
          }
         }
       );
