@@ -19,7 +19,7 @@ function tweetEvent(eventMsg) {
     fs.writeFileSync("tweet.json" , json);
     var replyto = eventMsg.in_reply_to_screen_name;
 
-    console.log(eventMsg.user)
+    console.log(eventMsg.user.screen_name)
 
     if (replyto === 'ram_simp') {
       tweetIt(eventMsg); 
@@ -30,28 +30,30 @@ function tweetIt(eventMsg) {
     
   console.log( 'Randomizing Packs' );
 
-  
   var rarity1 = Math.ceil( Math.random() * 100 )
-  if ( rarity > 1) {
-    var rarity = 'epic'  
-  } else if ( rarity >= 1 && rarity <= 5){    
-    var rarity = 'rare'
-  } else if ( rarity >= 5 && rarity <= 25) {   
-    var rarity = 'uncommon' 
+  if ( rarity1 > 1) {
+    var rarity1 = 'epic'  
+  } else if ( rarity1 >= 1 && rarity1 <= 5){    
+    var rarity1 = 'rare'
+  } else if ( rarity1 >= 5 && rarity1 <= 25) {   
+    var rarity1 = 'uncommon' 
   } else  {   
-    var rarity = 'common'
+    var rarity1 = 'common'
   }
 
   var rarity2 = Math.ceil( Math.random() * 100 )
-  if ( rarity > 1) {
+  if ( rarity2 > 1) {
     var rarity2 = 'epic'  
-  } else if ( rarity >= 1 && rarity <= 5){    
+  } else if ( rarity2 >= 1 && rarity2 <= 5){    
     var rarity2 = 'rare'
-  } else  ( rarity >= 5 )
+  } else  ( rarity2 >= 5 )
     var rarity2 ='uncommon'
-  
-  
+
+    /////////////////////////////////////
+    console.log(rarity1 + rarity2)
     console.log('common')
+    ////////////////////////////////////////
+
 
     filenames1 = fs.readdirSync(path.join(__dirname, "Cards" , "common"))
   
@@ -67,6 +69,7 @@ function tweetIt(eventMsg) {
 
 
     //////////////////////////////
+
     console.log('common')
   
     filenames2 = fs.readdirSync(path.join(__dirname, "Cards" , "common"))
@@ -83,7 +86,8 @@ function tweetIt(eventMsg) {
 
 
     ////////////////////////////////
-    console.log(rarity)
+
+    console.log(rarity1)
   
     filenames3 = fs.readdirSync(path.join(__dirname, "Cards" , rarity1))
   
@@ -99,7 +103,8 @@ function tweetIt(eventMsg) {
 
 
     //////////////////////////////////
-    console.log(rarity)
+
+    console.log(rarity2)
   
     filenames4 = fs.readdirSync(path.join(__dirname, "Cards" , rarity2))
   
@@ -112,11 +117,18 @@ function tweetIt(eventMsg) {
     const imagePath4 = path.join(__dirname, "Cards" , rarity2 , answer4 );
 
     b64content4 = fs.readFileSync( imagePath4, { encoding: 'base64' } );
+
+    var mediaArray = [];
+    var mediaString = mediaArray.join();
   
 
   const posts = new Promise((res,rej) => {
     T.post("media/upload",{media_data: b64content1}, function (err, data, response) {
-
+        console.log(mediaString)
+        console.log(data.media_id_string)
+        console.log(mediaString)
+        //console.log(response)
+        mediaArray.push(data.media_id_string)
 
       res();
 
@@ -127,8 +139,12 @@ function tweetIt(eventMsg) {
   return new Promise((res,rej) => {
 
    T.post("media/upload",{media_data: b64content2}, function (err, data, response) {
-     
-    
+      console.log(mediaString)
+      console.log(data.media_id_string)
+      console.log(mediaString)
+      //console.log(response)
+      mediaArray.push(data.media_id_string)
+
     res();
     })
 
@@ -137,8 +153,11 @@ function tweetIt(eventMsg) {
   return new Promise((res,rej) => {
 
    T.post("media/upload",{media_data: b64content3}, function (err, data, response) {
-
- 
+      console.log(mediaString)
+      console.log(data.media_id_string)        
+      console.log(mediaString)
+      //console.log(response)
+      mediaArray.push(data.media_id_string)
 
     res();
 
@@ -149,18 +168,21 @@ function tweetIt(eventMsg) {
   return new Promise((res,rej) => {
 
     T.post("media/upload",{media_data: b64content4}, function (err, data, response) {
-
-
+      console.log(mediaString)
+      console.log(data.media_id_string)
+      console.log(mediaString)
+      //console.log(response)
+      mediaArray.push(data.media_id_string)
 
   res();
 
   })
 
-}).then(result => {console.log(result).catch( err => console.log(err)) 
+}).then(result => {console.log(result) 
 
-  var mediaIdStr = mediaArray
+  var mediaIdStr = mediaString
   var altText = "Ram Me Harder"
-  var meta_params = { media_ids: mediaIdStr , alt_text: { text: altText } }
+  var meta_params = { media_id: mediaIdStr , alt_text: { text: altText } }
 
         return new Promise((res,rej) => {
 
@@ -170,7 +192,7 @@ T.post('media/metadata/create', meta_params, function (err, data, response) {
 
    if (!err) {
 
-     var params = { status: `@${eventMsg.user.screen_name} Get Rammed` , media_ids: mediaIdStr , in_reply_to_status_id: eventMsg.id_str }
+     var params = { status: `@${eventMsg.user.screen_name} Get Rammed` , media_id: mediaIdStr , in_reply_to_status_id: eventMsg.id_str }
 
 T.post( 'statuses/update', params , function( err, data, response) {
 
