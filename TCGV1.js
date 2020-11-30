@@ -1,9 +1,12 @@
 console.log('Ram Worship Initiate');
 
+const sqlite3 = require('sqlite3').verbose();
+
 var Twit = require( 'twit' ),
       fs = require( 'fs' ),
       path = require( 'path' ),
       config = require( path.join( __dirname, 'config.js' ) );
+
 
 var config = require('./config.js');
 

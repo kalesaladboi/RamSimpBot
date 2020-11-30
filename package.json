@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "nedb": "^1.8.0",
+    "sqlite3": "^5.0.0",
     "twit": "^2.2.11"
   }
 }
