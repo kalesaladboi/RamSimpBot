@@ -18,28 +18,28 @@ tweetIt()
 setInterval( tweetIt, 1000*60*60)
 
 function tweetEvent(eventMsg) {
-    var json = JSON.stringify(eventMsg,null,2);
-    fs.writeFileSync("tweet.json" , json);
-    var replyto = eventMsg.in_reply_to_screen_name;
-    var tweet_id = eventMsg.id_str;
-  }
-function randomFromArray(){ 
-  filenames = fs.readdirSync(path.join(__dirname, "images"))
+  var json = JSON.stringify(eventMsg,null,2);
+  fs.writeFileSync("tweet.json" , json);
+  var replyto = eventMsg.in_reply_to_screen_name;
+  var tweet_id = eventMsg.id_str;
 
-  console.log( 'boinking the boobies' )
+}
 
-  return Math.ceil( Math.random() * Object.keys(filenames).length)
-  }
+
+console.log( 'boinking the boobies' )
 
 function tweetIt(eventMsg) {
-    console.log( 'picking a random image...' );
+  filenames = fs.readdirSync(path.join(__dirname, "images"))
 
-    const image = randomFromArray("images"); 
-    console.log( image );
+  console.log( 'picking a random image...' );
 
-    const imagePath = path.join(__dirname, "images" , `${image}.JPG`);
+  var file = filenames[Math.ceil( Math.random() * filenames.length)]; 
+  console.log( file );
 
-    b64content = fs.readFileSync( imagePath, { encoding: 'base64' } );
+  const imagePath = path.join(__dirname, "images" , `${file}`);
+
+  b64content = fs.readFileSync( imagePath, { encoding: 'base64' } );
+
 
   console.log( 'uploading an image...' );
  
