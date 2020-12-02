@@ -13,32 +13,16 @@ var stream = T.stream('statuses/filter', { track: '@ram_simp' });
 
 stream.on( 'tweet', tweetEvent)
 
+tweetIt()
 
-function tweetEvent(eventMsg) {
-    var json = JSON.stringify(eventMsg,null,2);
-    fs.writeFileSync("tweet.json" , json);
-    var replyto = eventMsg.in_reply_to_screen_name;
-    var tweet_id = eventMsg.id_str;
-    
-    console.log(eventMsg.id)
-    console.log(eventMsg.id_str)
-    console.log(eventMsg.text)
-    console.log(eventMsg.in_reply_to_screen_name)
-    console.log(eventMsg.in_reply_to_user_id_str)
-    console.log(eventMsg.in_reply_to_user_id)
-    console.log(eventMsg.user)
-
-    if (replyto === 'ram_simp') {
-      tweetIt(eventMsg); 
-    }
-  }
+setInterval( tweetIt, 1000)
 
 function randomFromArray(){ 
   filenames = fs.readdirSync(path.join(__dirname, "images"))
 
   console.log( 'boinking the boobies' )
 
-  return Math.ceil( Math.random() * Object.keys(filenames).length)-1
+  return Math.ceil( Math.random() * Object.keys(filenames).length)
   }
 
 function tweetIt(eventMsg) {
@@ -60,7 +44,7 @@ function tweetIt(eventMsg) {
   
     T.post('media/metadata/create', meta_params, function (err, data, response) {
        if (!err) {
-         var params = { status: `@${eventMsg.user.screen_name} Get Rammed` , media_ids: [mediaIdStr] , in_reply_to_status_id: eventMsg.id_str }
+         var params = { status: `@${eventMsg.user.screen_name} AYAYAYAYAYAYAYAYAYAYAYAYAYAYA` , media_ids: [mediaIdStr] , in_reply_to_status_id: eventMsg.id_str }
             T.post( 'statuses/update', params , function( err, data, response) {
               if (err){
               console.log( 'error:', err );
@@ -76,7 +60,3 @@ function tweetIt(eventMsg) {
   });
  });
 };
-
-
-
-//entities.user_mentions.screen_name  'ram_simp'

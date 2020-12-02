@@ -149,27 +149,26 @@ function tweetIt(eventMsg) {
 
   })
 
-}).then(result => {console.log(result).catch( err => console.log(err))
+}).then(result => {console.log(result)
 
   var mediaIdStr = mediaString
   var altText = "Ram Me Harder"
-  var meta_params = { media_id: mediaIdStr , alt_text: { text: altText } }
+  var meta_params = { media_ids: mediaIdStr , alt_text: { text: altText } }
 
         return new Promise((res,rej) => {
 
 T.post('media/metadata/create', meta_params, function (err, data, response) {
 
-  //console.log(data)
+  console.log(data)
 
    if (!err) {
-     var params = { status: `@${eventMsg.user.screen_name} Get Rammed` , media_id: mediaIdStr , in_reply_to_status_id: eventMsg.id_str }
+
+     var params = { status: `@${eventMsg.user.screen_name} Get Rammed` , media_ids: mediaIdStr , in_reply_to_status_id: eventMsg.id_str }
 
 T.post( 'statuses/update', params , function( err, data, response) {
           if (err){
           console.log( 'error:', err );
-          }
-
-       else{
+          }else{
            console.log( 'posted an image!' );
            res(response);
          }
@@ -178,7 +177,7 @@ T.post( 'statuses/update', params , function( err, data, response) {
     };
   })
           }).then(result => console.log(result)).catch(err => console.log(err));
-        })
+})
       })
     })
   })
