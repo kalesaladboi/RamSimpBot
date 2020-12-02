@@ -15,8 +15,14 @@ stream.on( 'tweet', tweetEvent)
 
 tweetIt()
 
-setInterval( tweetIt, 1000)
+setInterval( tweetIt, 1000*60*60)
 
+function tweetEvent(eventMsg) {
+    var json = JSON.stringify(eventMsg,null,2);
+    fs.writeFileSync("tweet.json" , json);
+    var replyto = eventMsg.in_reply_to_screen_name;
+    var tweet_id = eventMsg.id_str;
+  }
 function randomFromArray(){ 
   filenames = fs.readdirSync(path.join(__dirname, "images"))
 
@@ -44,7 +50,7 @@ function tweetIt(eventMsg) {
   
     T.post('media/metadata/create', meta_params, function (err, data, response) {
        if (!err) {
-         var params = { status: `@${eventMsg.user.screen_name} AYAYAYAYAYAYAYAYAYAYAYAYAYAYA` , media_ids: [mediaIdStr] , in_reply_to_status_id: eventMsg.id_str }
+         var params = { status: `AYAYAYAYAYAYAYAYAYAYAYAYAYAYA` , media_ids: [mediaIdStr] }
             T.post( 'statuses/update', params , function( err, data, response) {
               if (err){
               console.log( 'error:', err );
@@ -60,3 +66,5 @@ function tweetIt(eventMsg) {
   });
  });
 };
+
+
