@@ -15,8 +15,6 @@ stream.on( 'tweet', tweetEvent)
 
 tweetIt()
 
-setInterval( tweetIt, 1000*60*60)
-
 function tweetEvent(eventMsg) {
   var json = JSON.stringify(eventMsg,null,2);
   fs.writeFileSync("tweet.json" , json);
