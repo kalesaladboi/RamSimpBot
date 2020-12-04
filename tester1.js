@@ -37,14 +37,27 @@ function tweetEvent(eventMsg) {
   console.log( 'boinking the boobies' )
 
 function tweetIt(eventMsg) {
-    filenames = fs.readdirSync(path.join(__dirname, "images"))
+
+    var rarity1 = Math.ceil( Math.random() * 125 )
+  if ( rarity1 > 25) {
+    var folder = "Yuka"  
+  } else if ( rarity1 > 25 && rarity1 <= 50){    
+    var folder = "Ram"
+  } else if ( rarity1 > 50 && rarity1 <= 75) {   
+    var folder = "Maki" 
+  } else if( rarity1 > 75 && rarity1 <= 100){   
+    var folder = "Tam"
+  } else {
+    var folder = "Mina"
+  }
+    filenames = fs.readdirSync(path.join(__dirname, "images", folder))
 
     console.log( 'picking a random image...' );
 
     var file = filenames[Math.ceil( Math.random() * filenames.length)]; 
     console.log( file );
 
-    const imagePath = path.join(__dirname, "images" , `${file}`);
+    const imagePath = path.join(__dirname, "images" , folder , `${file}`);
 
     b64content = fs.readFileSync( imagePath, { encoding: 'base64' } );
 
@@ -59,23 +72,67 @@ function tweetIt(eventMsg) {
   
     T.post('media/metadata/create', meta_params, function (err, data, response) {
        if (!err) {
-         var params = { status: `@${eventMsg.user.screen_name} Get Rammed` , media_ids: [mediaIdStr] , in_reply_to_status_id: eventMsg.id_str }
-            T.post( 'statuses/update', params , function( err, data, response) {
-              if (err){
-              console.log( 'error:', err );
-              }
-           else{
-               console.log( 'posted an image!' );
+           if(rarity1 > 25 ){
+            var params = { status: `@${eventMsg.user.screen_name} ayayayayayayayayayayayayayayayaya` , media_ids: [mediaIdStr] , in_reply_to_status_id: eventMsg.id_str }
+             T.post( 'statuses/update', params , function( err, data, response) {
+                if (err){
+                console.log( 'error:', err );
+                }
+            else{
+                console.log( 'posted an image!' );
 
-             }
-          }
-      );
-  
-      };
-  });
+                 }
+            }
+        );
+        }else if(rarity1 > 25 && rarity1 <= 50){
+            var params = { status: `@${eventMsg.user.screen_name} Get Rammed` , media_ids: [mediaIdStr] , in_reply_to_status_id: eventMsg.id_str }
+               T.post( 'statuses/update', params , function( err, data, response) {
+                 if (err){
+                 console.log( 'error:', err );
+                 }
+              else{
+                  console.log( 'posted an image!' );
+    
+                }
+          })
+        }else if( rarity1 > 50 && rarity1 <= 75){
+            var params = { status: `@${eventMsg.user.screen_name} Mother Fucker` , media_ids: [mediaIdStr] , in_reply_to_status_id: eventMsg.id_str }
+               T.post( 'statuses/update', params , function( err, data, response) {
+                 if (err){
+                 console.log( 'error:', err );
+                 }
+              else{
+                  console.log( 'posted an image!' );
+    
+                }
+          })
+        }else if(rarity1 > 75 && rarity1 <= 100){
+            var params = { status: `@${eventMsg.user.screen_name} P-chan will be missed` , media_ids: [mediaIdStr] , in_reply_to_status_id: eventMsg.id_str }
+               T.post( 'statuses/update', params , function( err, data, response) {
+                 if (err){
+                 console.log( 'error:', err );
+                 }
+              else{
+                  console.log( 'posted an image!' );
+    
+                }
+          })
+        }else{
+            var params = { status: `@${eventMsg.user.screen_name} The H-cup Fighter has appeared` , media_ids: [mediaIdStr] , in_reply_to_status_id: eventMsg.id_str }
+               T.post( 'statuses/update', params , function( err, data, response) {
+                 if (err){
+                 console.log( 'error:', err );
+                 }
+              else{
+                  console.log( 'posted an image!' );
+    
+                }
+          })
+        }
+  };
  });
-};
-
+})
+}
 
 
 //entities.user_mentions.screen_name  'ram_simp'
