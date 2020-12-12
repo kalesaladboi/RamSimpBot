@@ -1,8 +1,8 @@
 {
-  "created_at": "Fri Dec 04 00:20:28 +0000 2020",
-  "id": 1334653764150636500,
-  "id_str": "1334653764150636544",
-  "text": "@ram_simp test3",
+  "created_at": "Fri Dec 04 01:06:56 +0000 2020",
+  "id": 1334665459036266500,
+  "id_str": "1334665459036266496",
+  "text": "@ram_simp boobies",
   "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
   "truncated": false,
   "in_reply_to_status_id": null,
@@ -24,8 +24,8 @@
     "followers_count": 168,
     "friends_count": 811,
     "listed_count": 3,
-    "favourites_count": 33196,
-    "statuses_count": 9341,
+    "favourites_count": 33198,
+    "statuses_count": 9343,
     "created_at": "Fri May 27 22:52:52 +0000 2016",
     "utc_offset": null,
     "time_zone": null,
@@ -80,6 +80,6 @@
   "favorited": false,
   "retweeted": false,
   "filter_level": "low",
-  "lang": "en",
-  "timestamp_ms": "1607041228698"
+  "lang": "fr",
+  "timestamp_ms": "1607044016976"
 }
